@@ -33,7 +33,7 @@ public class HelloController {
     }
 
     @GetMapping("hello-api")
-    @ResponseBody
+    @ResponseBody // 웹브라우저에서 hello-api를 던진다, 근데 responsebody가 있네? "그대로 이 데이터를 넘겨야겠다 " 근데 객체가 넘어가네? -> 스프링 : 아 , 객체가 오면 Json방식으로 데이터를 만들어서 데이터를 반환해야겠다. viewresolver대신에 Httpmassageconverter가 작동한다, 객체가 넘어오면 Jsonconverter가 객체를 json스타일로 바꾼걸 요청한 서버나 웹브라우저에 보내준다.
     public Hello helloApi(@RequestParam("name") String name) {
         Hello hello = new Hello();
         hello.setName(name);
